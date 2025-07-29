@@ -46,3 +46,29 @@ Remove Duplicate values in an Array:
 ```
   const uniqueNumbersArr = [...new Set(sortedNumbersArr)]
 ```
+
+My Logic Version of the Function:
+```
+  const checkForStraights = (arr) => {
+    const sorted = [...new Set(arr)].sort((a, b) => a - b);
+    let count = 0;
+
+    for (let i = 0; i < sorted.length - 2; i++) {
+      if (sorted[i] === sorted[i + 1] - 1 && sorted[i + 1] === sorted[i + 2] - 1) {
+      count++;
+      continue;
+      }
+      if (count === 2){ 
+        continue;
+      }
+      count = 0;
+    }
+
+    if (count === 3){
+      updateRadioOption(4, 40);
+    } 
+    if (count >= 2){
+      updateRadioOption(3, 30);
+    } 
+  }
+```
